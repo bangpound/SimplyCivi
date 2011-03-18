@@ -8,7 +8,7 @@
     padding: 0px;
     }
     
-#mainTabContainer .crm-contact-tabs-list {
+#mainTabContainer .ui-tabs-nav {
     width: 15%;
     float:left;
     padding:4px;
@@ -27,3 +27,4 @@
     }
    
 .ui-widget-content { background: transparent; } /* override of jquery-ui.css that creates weird white background */    
+.ui-dialog { background: #FFF; }
