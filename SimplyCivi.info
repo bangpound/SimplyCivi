@@ -22,6 +22,7 @@ stylesheets[screen,projection][] = css/style.css
 ;the civicrm-theme.css file only contains overrides for declarations in civicrm.css 
 stylesheets[screen,projection][] = css/civicrm-theme.css
 
+stylesheets[print][] = css/print.css
 
 scripts[] = scripts/messages.js
 scripts[] = scripts/sidebars.js
