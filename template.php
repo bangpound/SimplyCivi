@@ -9,6 +9,10 @@ if (theme_get_setting('SimplyCivi_animated_submit')) {
   drupal_add_js(drupal_get_path('theme', 'SimplyCivi') .'/scripts/submit_animated.js');
 }
 
+if (theme_get_setting('SimplyCivi_import_htmlmailings')) {
+  drupal_add_js(drupal_get_path('theme', 'SimplyCivi') .'/scripts/htmlmailings.js');
+}
+
 /**
  * Implements HOOK_theme().
  */
@@ -46,7 +50,7 @@ function SimplyCivi_preprocess_page(&$vars) {
   if (!module_exists('page_title')) {
     // Fixup the $head_title and $title vars to display better.
     $title = drupal_get_title();
-    $headers = drupal_set_header();
+    $headers = drupal_get_headers();
 
     // if this is a 403 and they aren't logged in, tell them they need to log in
     if (strpos($headers, 'HTTP/1.1 403 Forbidden') && !$user->uid) {
@@ -303,7 +307,7 @@ function SimplyCivi_help() {
 function SimplyCivi_breadcrumb($breadcrumb) {
   // Don't add the title if menu_breadcrumb exists. TODO: Add a settings 
   // checkbox to optionally control the display.
-  if (!module_exists(menu_breadcrumb) && count($breadcrumb) > 0) {
+  if (!module_exists('menu_breadcrumb') && count($breadcrumb) > 0) {
       $breadcrumb[] = drupal_get_title();
   }
   return '<div class="breadcrumb">'. implode(' &rsaquo; ', $breadcrumb) .'</div>';
